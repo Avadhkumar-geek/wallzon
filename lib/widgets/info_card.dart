@@ -7,6 +7,12 @@ class InfoCard extends StatelessWidget {
     super.key,
   });
 
+  Future<void> _launchUrl(String url) async {
+    if (!await launchUrl(Uri.parse(url))) {
+      throw Exception('Could not launch');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -39,9 +45,8 @@ class InfoCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 GestureDetector(
-                  onTap: () => launchUrl(
-                    Uri.parse('www.google.com'),
-                  ),
+                  onTap: () =>
+                      _launchUrl('https://github.com/Avadhkumar-geek/wallzon'),
                   child: const Image(
                     height: 30,
                     image: AssetImage('assets/github1.png'),
@@ -51,9 +56,8 @@ class InfoCard extends StatelessWidget {
                   width: 16,
                 ),
                 GestureDetector(
-                  onTap: () => launchUrl(
-                    Uri.parse('www.google.com'),
-                  ),
+                  onTap: () => _launchUrl(
+                      'https://www.linkedin.com/in/avadhkumar-kachhadiya-022175204/'),
                   child: const Image(
                     height: 30,
                     image: AssetImage('assets/linkedin.png'),
