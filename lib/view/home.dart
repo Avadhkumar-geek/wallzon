@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wallzon/api/fetchApi.dart';
+import 'package:wallzon/api/fetch_api.dart';
 import 'package:wallzon/data/data.dart';
 import 'package:wallzon/model/category_model.dart';
 import 'package:wallzon/model/constants.dart';
@@ -8,7 +8,7 @@ import 'package:wallzon/widgets/category_tile.dart';
 import 'package:wallzon/widgets/info_card.dart';
 import 'package:wallzon/widgets/logo.dart';
 import 'package:wallzon/widgets/search_bar.dart';
-import 'package:wallzon/widgets/wallpaperList.dart';
+import 'package:wallzon/widgets/wallpaper_list.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -25,6 +25,8 @@ class _HomeState extends State<Home> {
   final TextEditingController queryController = TextEditingController();
 
   Future<void> _fetchData() async {
+    if (isLoading) return; // Return if a fetch operation is already in progress
+
     setState(() {
       isLoading = true;
     });

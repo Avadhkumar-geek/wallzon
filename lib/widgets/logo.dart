@@ -7,7 +7,7 @@ Widget logo() {
     style: TextStyle(
       color: kForegroundColor,
       fontSize: 25,
-      fontWeight: FontWeight.bold,
+      fontWeight: FontWeight.w900,
     ),
   );
 }

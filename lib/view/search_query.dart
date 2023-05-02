@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:wallzon/api/fetchApi.dart';
+import 'package:wallzon/api/fetch_api.dart';
 import 'package:wallzon/model/constants.dart';
 import 'package:wallzon/model/photos.dart';
 import 'package:wallzon/widgets/logo.dart';
-import 'package:wallzon/widgets/wallpaperList.dart';
+import 'package:wallzon/widgets/wallpaper_list.dart';
 
 class SearchQuery extends StatefulWidget {
   final String queryController;
 
-  const SearchQuery({required this.queryController});
+  const SearchQuery({super.key, required this.queryController});
 
   @override
   State<SearchQuery> createState() => _SearchQueryState();
@@ -31,7 +31,7 @@ class _SearchQueryState extends State<SearchQuery> {
       if (mounted) {
         setState(() {
           photosList.addAll(fetchedPhotos);
-          page = page + 2;
+          page = page + 1;
         });
       }
     } catch (e) {

@@ -8,9 +8,9 @@ class DataService {
   static Future<List<Photos>> fetchData(int page) async {
     try {
       String apiKey = dotenv.env['API_KEY']!;
-      var res = await http.get(
-          Uri.parse("https://api.pexels.com/v1/curated?page=$page"),
-          headers: {"Authorization": apiKey});
+      String url = "https://api.pexels.com/v1/curated?page=$page";
+      var res =
+          await http.get(Uri.parse(url), headers: {"Authorization": apiKey});
 
       Map<String, dynamic> data = jsonDecode(res.body);
       List<dynamic> list = data["photos"];
@@ -25,9 +25,10 @@ class DataService {
   static Future<List<Photos>> fetchQuery(int page, String query) async {
     try {
       String apiKey = dotenv.env['API_KEY']!;
-      var res = await http.get(
-          Uri.parse("https://api.pexels.com/v1/search?query=$query&page=$page"),
-          headers: {"Authorization": apiKey});
+      String url = "https://api.pexels.com/v1/search?query=$query&page=$page";
+
+      var res =
+          await http.get(Uri.parse(url), headers: {"Authorization": apiKey});
 
       Map<String, dynamic> data = jsonDecode(res.body);
       List<dynamic> list = data["photos"];

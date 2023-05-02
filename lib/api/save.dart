@@ -3,10 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
-import 'package:path_provider/path_provider.dart';
 
 String? extractFilenameFromUrl(String url) {
-  RegExp regExp = RegExp('([^?/]*\.(?:png|jpe?g|gif|webp))');
+  RegExp regExp = RegExp('([^?/]*.(?:png|jpe?g|gif|webp))');
   Match match = regExp.firstMatch(url) as Match;
   return match.group(1);
 }
@@ -15,7 +14,6 @@ Future<File?> saveNetworkImageToDownloads(String imageUrl) async {
   // Download and save the image
   try {
     final response = await http.get(Uri.parse(imageUrl));
-    final extDir = await getExternalStorageDirectory();
     final downloadsDir = Directory('/storage/emulated/0/Download');
     // final downloadsDir = Directory('${extDir?.path}/Download');
     final filename = extractFilenameFromUrl(imageUrl);
