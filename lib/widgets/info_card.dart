@@ -7,9 +7,12 @@ class InfoCard extends StatelessWidget {
     super.key,
   });
 
-  Future<void> _launchUrl(String url) async {
-    if (!await launchUrl(Uri.parse(url))) {
-      throw Exception('Could not launch');
+  _launchUrl(String url) async {
+    try {
+      await launchUrl(Uri.parse(url),
+          mode: LaunchMode.externalNonBrowserApplication);
+    } catch (e) {
+      throw e.toString();
     }
   }
 

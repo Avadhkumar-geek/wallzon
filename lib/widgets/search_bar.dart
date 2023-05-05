@@ -12,37 +12,41 @@ class SearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
-        color: kBaseColor,
-      ),
-      padding: const EdgeInsets.symmetric(horizontal: 25),
-      margin: const EdgeInsets.symmetric(horizontal: 25),
-      child: Row(
-        children: [
-          Expanded(
-            child: TextField(
-              controller: queryController,
-              decoration: const InputDecoration(
-                border: InputBorder.none,
+    return GestureDetector(
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          color: kBaseColor,
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 25),
+        margin: const EdgeInsets.symmetric(horizontal: 25),
+        child: Row(
+          children: [
+            Expanded(
+              child: TextField(
+                controller: queryController,
+                decoration: const InputDecoration(
+                  border: InputBorder.none,
+                ),
+                onSubmitted: (_) => FocusScope.of(context).unfocus(),
               ),
-              // Add an onSubmitted callback to remove the focus when the Enter key is pressed
-              onSubmitted: (_) => FocusScope.of(context).unfocus(),
             ),
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        SearchQuery(queryController: queryController.text)),
-              );
-            },
-            child: const Icon(Icons.search),
-          ),
-        ],
+            GestureDetector(
+              onTap: () {
+                if (queryController.text.isNotEmpty) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          SearchQuery(queryController: queryController.text),
+                    ),
+                  );
+                }
+              },
+              child: const Icon(Icons.search),
+            ),
+          ],
+        ),
       ),
     );
   }

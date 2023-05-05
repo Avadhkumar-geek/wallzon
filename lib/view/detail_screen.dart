@@ -12,8 +12,6 @@ class DetailScreen extends StatefulWidget {
 }
 
 class _DetailScreenState extends State<DetailScreen> {
-  bool _showAppBar = true;
-
   Color _colorFromHex(String hexColor) {
     final hexCode = hexColor.replaceAll('#', '');
     return Color(int.parse('0xFF$hexCode'));
@@ -22,77 +20,56 @@ class _DetailScreenState extends State<DetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      backgroundColor: Colors.transparent,
-      body: Stack(
+      // extendBodyBehindAppBar: true,
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        foregroundColor: Colors.white,
+        title: const Text(
+          'Wallpaper',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        centerTitle: true,
+      ),
+      body: Column(
         children: [
-          Container(
-            decoration: const BoxDecoration(
-              color: Colors.black12,
-            ),
+          const SizedBox(
+            height: 50,
           ),
-          Positioned.fill(
-            child: GestureDetector(
-              onTapDown: (_) => setState(() => _showAppBar = !_showAppBar),
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(30),
-                    child: Hero(
-                      tag: widget.photos.id,
-                      child: Image.network(
-                        widget.photos.src.portrait,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        ElevatedButton(
-                          onPressed: () async =>
-                              await saveNetworkImageToDownloads(
-                                  widget.photos.src.original),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                _colorFromHex(widget.photos.avgColor),
-                            minimumSize: const Size(200, 50),
-                          ),
-                          child: const Text(
-                            "Download",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                                color: Colors.white),
-                          ),
-                        ),
-                        const SizedBox(height: 50),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          if (_showAppBar)
-            Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              child: AppBar(
-                backgroundColor: Colors.transparent,
-                title: const Text(
-                  'Wallpaper',
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
+          AspectRatio(
+            aspectRatio: 0.68,
+            child: Material(
+              color: Colors.black45,
+              clipBehavior: Clip.hardEdge,
+              borderRadius: BorderRadius.circular(30),
+              child: Hero(
+                tag: widget.photos.id,
+                child: Image.network(
+                  widget.photos.src.portrait,
+                  fit: BoxFit.cover,
+                  width: double.infinity,
                 ),
-                centerTitle: true,
               ),
             ),
+          ),
+          const SizedBox(height: 30),
+          ElevatedButton(
+            onPressed: () async =>
+                await saveNetworkImageToDownloads(widget.photos.src.original),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: _colorFromHex(widget.photos.avgColor),
+              minimumSize: const Size(150, 50),
+            ),
+            child: const Text(
+              "Download",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.white),
+            ),
+          ),
         ],
       ),
     );

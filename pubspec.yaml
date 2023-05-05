@@ -43,6 +43,7 @@ dependencies:
   fluttertoast: ^8.2.1
   url_launcher: ^6.1.10
   google_fonts: ^4.0.4
+  flutter_wallpaper_manager: ^0.0.3
 
 dev_dependencies:
   flutter_test:
