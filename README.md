@@ -1,16 +1,10 @@
-# WallZon (Flutter Wallpaper App)
+# WallZon - A Flutter Wallpaper App
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Flutter Version](https://img.shields.io/badge/flutter-1.22-blue.svg)](https://flutter.dev/docs/development/tools/sdk/releases?tab=macos)
-[![Dart Version](https://img.shields.io/badge/dart-2.10.2-blue.svg)](https://dart.dev/)
+[![Flutter Version](https://img.shields.io/badge/flutter-3.7.3-blue.svg)](https://flutter.dev/docs/development/tools/sdk/releases?tab=macos)
+[![Dart Version](https://img.shields.io/badge/dart-2.19.2-blue.svg)](https://dart.dev/)
 
-Sure, here's an example of a beautiful README.md file for your Flutter wallpaper application:
-
-![App Banner](app_banner.png)
-
-# Wallpaper App
-
-A beautiful and easy-to-use wallpaper application built with Flutter, using the Pexels API to fetch high-quality wallpapers.
+WallZon is a beautiful and easy-to-use wallpaper application built with Flutter, using the Pexels API to fetch high-quality wallpapers.
 
 ## Features
 
@@ -24,17 +18,22 @@ To run the app, follow these simple steps:
 
 1. Clone this repository to your local machine.
 2. Install all dependencies by running `flutter pub get`.
-3. Run the app using `flutter run`.
-
-Note: You need to obtain API key from [Pexels.com](https://www.pexels.com/api/) and replace it in [constants.dart](lib/utilities/constants.dart) file before running the app.
+3. Obtain an API key from [Pexels.com](https://www.pexels.com/api/), then create a `.env` file at the root of the project and add your API key as `API_KEY=your_api_key_here`.
+4. Run the app using `flutter run`.
 
 ## Screenshots
 
-![Home Screen](screenshots/home_screen.png)
+### Home Screen
 
-![Wallpaper Detail Screen](screenshots/wallpaper_detail_screen.png)
+![Home Screen](![](screenshots/home.jpg))
 
-![Search Screen](screenshots/search_screen.png)
+### Wallpaper Detail Screen
+
+![Wallpaper Detail Screen](![](screenshots/detail.jpg))
+
+### Search Screen
+
+![Search Screen](![](screenshots/search.jpg))
 
 ## Technologies Used
 
