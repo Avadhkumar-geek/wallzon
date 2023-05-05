@@ -25,15 +25,15 @@ To run the app, follow these simple steps:
 
 ### Home Screen
 
-![Home Screen](![](screenshots/home.jpg))
+![Home Screen] (screenshots/home.jpg)
 
 ### Wallpaper Detail Screen
 
-![Wallpaper Detail Screen](![](screenshots/detail.jpg))
+![Wallpaper Detail Screen](screenshots/detail.jpg)
 
 ### Search Screen
 
-![Search Screen](![](screenshots/search.jpg))
+![Search Screen](screenshots/search.jpg)
 
 ## Technologies Used
 
