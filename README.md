@@ -25,15 +25,15 @@ To run the app, follow these simple steps:
 
 ### Home Screen
 
-![Home Screen] (screenshots/home.jpg)
+<img src="https://user-images.githubusercontent.com/81379791/236424658-8bceccd7-14c9-41d2-9b2e-f53f2dc2c2cc.jpg" height="500" width="250">
 
 ### Wallpaper Detail Screen
 
-![Wallpaper Detail Screen](screenshots/detail.jpg)
+<img src="https://user-images.githubusercontent.com/81379791/236424801-562c93a9-4cca-449e-9ca8-de60a932e635.jpg" height="500" width="250">
 
 ### Search Screen
 
-![Search Screen](screenshots/search.jpg)
+<img src="https://user-images.githubusercontent.com/81379791/236424894-76a32bff-14f8-4f70-8164-cd9d781eed01.jpg" height="500" width="250">
 
 ## Technologies Used
 
