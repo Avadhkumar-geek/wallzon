@@ -28,10 +28,10 @@ Widget wallpaperList(BuildContext context, VoidCallback fetchData,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               childAspectRatio: 0.6,
-              mainAxisSpacing: 16,
-              crossAxisSpacing: 16,
+              mainAxisSpacing: 8,
+              crossAxisSpacing: 8,
             ),
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 8),
             itemCount: photosList.length,
             itemBuilder: (BuildContext context, int index) {
               final photos = photosList[index];
